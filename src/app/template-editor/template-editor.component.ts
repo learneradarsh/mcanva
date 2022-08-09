@@ -34,7 +34,7 @@ export class TemplateEditorComponent implements OnInit, OnDestroy {
   onSubmit(templateFormInfo: FormGroup) {
     this.selectedTempate.offerTitle = templateFormInfo.get('offerHeading')?.value;
     this.selectedTempate.discountCode = templateFormInfo.get('offerDiscount')?.value;
-    this.templateDataService.updateTimeLine(this.selectedTempate);
+    this.templateDataService.addPostOnTimeLine(this.selectedTempate);
     this.templateEditorForm.reset();
   }
 

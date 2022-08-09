@@ -1,4 +1,5 @@
 <div [ngClass]="{'template-card': true, 'selected-template-card': cardInfo.isSelected}" (click)="onTemplateSelect(cardInfo)">
+    <button *ngIf="showDelete" class="pull-it-right" type="button" (click)="deletePost(cardInfo)">Delete</button>
     <img #templateInfo [id]="cardInfo.id" [src]="cardInfo.templateUrl" [alt]="cardInfo.templateName"/>
     <div *ngIf="cardInfo.offerTitle || cardInfo.discountCode" class="template-promo">
         <h2 class="h2" *ngIf="cardInfo.offerTitle">{{cardInfo.offerTitle}}</h2>

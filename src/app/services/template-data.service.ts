@@ -74,12 +74,18 @@ export class TemplateDataService {
     this._templatesSub.next([template, ...currentTemplateList]);
   }
 
-  updateTimeLine(template: TemplateDTO): void {
+  addPostOnTimeLine(template: TemplateDTO): void {
     let currentTimeLine = this._profileTimeLineSub.value;
     this._profileTimeLineSub.next([template,...currentTimeLine])
   }
 
   getProfileTimeline(): Observable<TemplateDTO[]> {
     return this._profileTimeLine$;
+  }
+
+  deletePostFromTimeline(template: TemplateDTO): void {
+    let currentTemplateList = this._profileTimeLineSub.value;
+    currentTemplateList = currentTemplateList.filter(item => item.id !== template.id);
+    this._profileTimeLineSub.next([...currentTemplateList]);
   }
 }

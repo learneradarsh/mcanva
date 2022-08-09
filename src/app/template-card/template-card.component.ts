@@ -10,14 +10,19 @@ import { TemplateDataService } from '../services/template-data.service';
 export class TemplateCardComponent implements OnInit {
 
   @Input() cardInfo: TemplateDTO = {} as TemplateDTO;
+  @Input() showDelete?: boolean = false;
   constructor(private readonly templateDataService: TemplateDataService) { }
 
   ngOnInit(): void {
   }
 
-  onTemplateSelect(template: any) {
+  onTemplateSelect(template: TemplateDTO): void {
     template.isSelected = true;
     this.templateDataService.setSelectedTemplate(template);
+  }
+
+  deletePost(template: TemplateDTO): void {
+    this.templateDataService.deletePostFromTimeline(template);
   }
 
 }
