@@ -1,6 +1,13 @@
 .template-card {
+    position: relative;
     img{
         width: 100%;
+    }
+
+    .template-promo {
+        position: absolute;
+        top: 50%;
+        left: 40%;
     }
 }
 

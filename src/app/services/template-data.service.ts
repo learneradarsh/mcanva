@@ -73,4 +73,14 @@ export class TemplateDataService {
     });
     this._templatesSub.next([template, ...currentTemplateList]);
   }
+
+  updateTimeLine(template: TemplateDTO): void {
+    let currentTimeLine = this._profileTimeLineSub.value;
+    this._profileTimeLineSub.next([template,...currentTimeLine])
+  }
+
+  updateTemplateInfo(template: TemplateDTO): void {
+    // update profile timeline also
+    this.updateTimeLine(template);
+  }
 }
