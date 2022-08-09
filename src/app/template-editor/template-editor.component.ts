@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TemplateDTO } from '../models/template-data-modal';
 import { TemplateDataService } from '../services/template-data.service';
 
@@ -13,7 +14,8 @@ export class TemplateEditorComponent implements OnInit {
   selectedTempate: TemplateDTO = {} as TemplateDTO;
   templateEditorForm!: FormGroup;
 
-  constructor(private readonly templateDataService: TemplateDataService) { }
+  constructor(private readonly templateDataService: TemplateDataService,
+    private readonly router: Router) { }
 
   ngOnInit(): void {
     this.templateEditorForm = new FormGroup({
@@ -31,6 +33,10 @@ export class TemplateEditorComponent implements OnInit {
     this.selectedTempate.discountCode = templateFormInfo.get('offerDiscount')?.value;
     this.templateDataService.updateTimeLine(this.selectedTempate);
     this.templateEditorForm.reset();
+  }
+
+  goToPosts() {
+    this.router.navigate(['/timeline']);
   }
 
 }

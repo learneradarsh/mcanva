@@ -1,0 +1,9 @@
+.template-timeline {
+    display: flex;
+    margin: 2% 10%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .template-timeline-item {
+        width: 25%;
+    }
+}

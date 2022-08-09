@@ -7,13 +7,15 @@ import { TemplateCardComponent } from './template-card/template-card.component';
 import { PostTimelineComponent } from './post-timeline/post-timeline.component';
 import { TemplateEditorComponent } from './template-editor/template-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateCardComponent,
     PostTimelineComponent,
-    TemplateEditorComponent
+    TemplateEditorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

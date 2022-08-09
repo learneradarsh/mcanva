@@ -10,7 +10,9 @@ import { TemplateDataService } from '../services/template-data.service';
 export class PostTimelineComponent implements OnInit {
 
   profileTimeLineData: TemplateDTO[] = [];
-  constructor(private readonly templateDataService: TemplateDataService) { }
+  constructor(private readonly templateDataService: TemplateDataService) { 
+    console.log(this.profileTimeLineData);
+  }
 
   ngOnInit(): void {
     this.templateDataService.getProfileTimeline().subscribe(data => {

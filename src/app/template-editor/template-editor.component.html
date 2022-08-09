@@ -23,8 +23,7 @@
         </div>
         <div class="template-form-button-container">
             <button type="submit" class="btn btn-success" [disabled]="!templateEditorForm.valid">Save</button>
-            <button type="button" class="btn btn-primary" [disabled]="!templateEditorForm.valid">Preview</button>
-            <button type="button" class="btn btn-warning" [disabled]="!templateEditorForm.valid">See All Posts</button>
+            <button type="button" class="btn btn-warning" (click)="goToPosts()">See All Posts</button>
         </div>
     </form>
 </div>

@@ -1,0 +1,10 @@
+<div class="custom-container">
+    <section class="template-card-container">
+      <ng-container *ngFor="let templateInfo of cardTemplates">
+        <app-template-card [cardInfo]="templateInfo"></app-template-card>
+      </ng-container>
+    </section>
+    <section>
+      <app-template-editor></app-template-editor>
+    </section>
+  </div>
