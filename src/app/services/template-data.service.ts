@@ -79,8 +79,7 @@ export class TemplateDataService {
     this._profileTimeLineSub.next([template,...currentTimeLine])
   }
 
-  updateTemplateInfo(template: TemplateDTO): void {
-    // update profile timeline also
-    this.updateTimeLine(template);
+  getProfileTimeline(): Observable<TemplateDTO[]> {
+    return this._profileTimeLine$;
   }
 }

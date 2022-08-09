@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TemplateDTO } from '../models/template-data-modal';
+import { TemplateDataService } from '../services/template-data.service';
 
 @Component({
   selector: 'app-post-timeline',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostTimelineComponent implements OnInit {
 
-  constructor() { }
+  profileTimeLineData: TemplateDTO[] = [];
+  constructor(private readonly templateDataService: TemplateDataService) { }
 
   ngOnInit(): void {
+    this.templateDataService.getProfileTimeline().subscribe(data => {
+      this.profileTimeLineData = [...data];
+    });
   }
 
 }
