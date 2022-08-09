@@ -1,1 +1,31 @@
-<p>template-editor works!</p>
+<div class="template-editor-container">
+<div class="template-editor-image">
+    selected image
+</div>
+<div class="template-editor-controls">
+    <h2 class="h2">Controller</h2>
+    <form [formGroup]="templateEditorForm" 
+    class="form-floating mt-2"
+    (ngSubmit)="onSubmit(templateEditorForm)">
+        <div>
+            <label for="offer-heading">Offer Heading</label>
+            <input type="text" class="form-control" 
+            id="offer-heading" 
+            placeholder="Offer Heading"
+            formControlName="offerHeading" required="required"/>
+        </div>
+        <div class="mt-4">
+            <label for="discount">Discount</label>
+            <input type="text" class="form-control" 
+            id="discount" 
+            placeholder="Discount"
+            formControlName="offerDiscount" required="required"/>
+        </div>
+        <div class="template-form-button-container">
+            <button type="submit" class="btn btn-success" [disabled]="!templateEditorForm.valid">Save</button>
+            <button type="button" class="btn btn-primary" [disabled]="!templateEditorForm.valid">Preview</button>
+            <button type="button" class="btn btn-warning" [disabled]="!templateEditorForm.valid">See All Posts</button>
+        </div>
+    </form>
+</div>
+</div>

@@ -13,4 +13,8 @@ export class TemplateCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onTemplateSelect(template: any) {
+    console.log(template);
+  }
+
 }

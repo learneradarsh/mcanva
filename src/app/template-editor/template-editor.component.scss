@@ -1,0 +1,21 @@
+.template-editor-container {
+    display: flex;
+    margin-top: 20px;
+    
+
+    .template-editor-image {
+        width: 60%;
+    }
+
+    .template-editor-controls {
+        width: 40%;
+        border: 1px solid black;
+        padding: 10px 25px;
+    }
+
+    .template-form-button-container {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 10px 0;
+    }
+}

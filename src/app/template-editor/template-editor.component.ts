@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-template-editor',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateEditorComponent implements OnInit {
 
+  templateEditorForm!: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.templateEditorForm = new FormGroup({
+      offerHeading: new FormControl(''),
+      offerDiscount: new FormControl('')
+    });
+  }
+
+  onSubmit(templateFormInfo: FormGroup) {
+    console.log(templateFormInfo);
   }
 
 }
