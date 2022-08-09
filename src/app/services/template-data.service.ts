@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TemplateList as TemplateDTO } from '../models/template-data-modal';
+import { TemplateDTO as TemplateDTO } from '../models/template-data-modal';
 
 @Injectable({
   providedIn: 'root'
@@ -44,14 +44,17 @@ export class TemplateDataService {
   ]);
   private _templates$ = this._templatesSub.asObservable(); 
 
+  private _profileTimeLineSub = new BehaviorSubject<TemplateDTO[]>([]);
+  private _profileTimeLine$ = this._profileTimeLineSub.asObservable();
+
   constructor() { }
 
 
-  getTemplates(): Observable<TemplateDTO[]> {
+  getTemplates$(): Observable<TemplateDTO[]> {
     return this._templates$;
   }
 
-  getSelectedTemplate(): Observable<TemplateDTO> {
+  getSelectedTemplate$(): Observable<TemplateDTO> {
     return this._selectedTemplate$;
   }
 

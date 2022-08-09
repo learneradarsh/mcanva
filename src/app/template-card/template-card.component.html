@@ -1,3 +1,5 @@
 <div [ngClass]="{'template-card': true, 'selected-template-card': cardInfo.isSelected}" (click)="onTemplateSelect(cardInfo)">
     <img #templateInfo [id]="cardInfo.id" [src]="cardInfo.templateUrl" [alt]="cardInfo.templateName"/>
+    <h3 class="h3" *ngIf="cardInfo.offerTitle">{{cardInfo.offerTitle}}</h3>
+    <h4 class="h4" *ngIf="cardInfo.discountCode">{{cardInfo.discountCode}}</h4>
 </div>

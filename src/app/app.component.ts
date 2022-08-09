@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TemplateList } from './models/template-data-modal';
+import { TemplateDTO } from './models/template-data-modal';
 import { TemplateDataService } from './services/template-data.service';
 
 @Component({
@@ -8,12 +8,12 @@ import { TemplateDataService } from './services/template-data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  cardTemplates: TemplateList[] = [];
+  cardTemplates: TemplateDTO[] = [];
   constructor(private readonly templateDataService: TemplateDataService) {
     console.log(this.cardTemplates);
   }
   ngOnInit() {
-    this.templateDataService.getTemplates().subscribe(data => {
+    this.templateDataService.getTemplates$().subscribe(data => {
       this.cardTemplates = [...data];
     });
   }

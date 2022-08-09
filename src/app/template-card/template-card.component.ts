@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TemplateList } from '../models/template-data-modal';
+import { TemplateDTO } from '../models/template-data-modal';
 import { TemplateDataService } from '../services/template-data.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { TemplateDataService } from '../services/template-data.service';
 })
 export class TemplateCardComponent implements OnInit {
 
-  @Input() cardInfo: TemplateList = {} as TemplateList;
+  @Input() cardInfo: TemplateDTO = {} as TemplateDTO;
   constructor(private readonly templateDataService: TemplateDataService) { }
 
   ngOnInit(): void {
