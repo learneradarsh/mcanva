@@ -1,3 +1,7 @@
-<div class="">
-
+<div class="custom-container">
+  <div class="template-card-container">
+    <ng-container *ngFor="let templateInfo of cardTemplates">
+      <app-template-card [cardInfo]="templateInfo"></app-template-card>
+    </ng-container>
+  </div>
 </div>
