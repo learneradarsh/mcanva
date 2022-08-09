@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { TemplateDTO } from '../models/template-data-modal';
 import { TemplateDataService } from '../services/template-data.service';
 
@@ -9,10 +10,12 @@ import { TemplateDataService } from '../services/template-data.service';
   templateUrl: './template-editor.component.html',
   styleUrls: ['./template-editor.component.scss']
 })
-export class TemplateEditorComponent implements OnInit {
+export class TemplateEditorComponent implements OnInit, OnDestroy {
 
   selectedTempate: TemplateDTO = {} as TemplateDTO;
   templateEditorForm!: FormGroup;
+
+  subscription!: Subscription;
 
   constructor(private readonly templateDataService: TemplateDataService,
     private readonly router: Router) { }
@@ -23,7 +26,7 @@ export class TemplateEditorComponent implements OnInit {
       offerDiscount: new FormControl('')
     });
 
-    this.templateDataService.getSelectedTemplate$().subscribe(data => {
+    this.subscription = this.templateDataService.getSelectedTemplate$().subscribe(data => {
       this.selectedTempate = {...data};
     })
   }
@@ -37,6 +40,10 @@ export class TemplateEditorComponent implements OnInit {
 
   goToPosts() {
     this.router.navigate(['/timeline']);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

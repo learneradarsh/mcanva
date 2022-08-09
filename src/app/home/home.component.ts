@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TemplateDTO } from '../models/template-data-modal';
 import { TemplateDataService } from '../services/template-data.service';
 
@@ -7,16 +8,21 @@ import { TemplateDataService } from '../services/template-data.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   cardTemplates: TemplateDTO[] = [];
+  subscription!: Subscription;
   constructor(private readonly templateDataService: TemplateDataService) {
     console.log(this.cardTemplates);
   }
   ngOnInit() {
-    this.templateDataService.getTemplates$().subscribe(data => {
+    this.subscription = this.templateDataService.getTemplates$().subscribe(data => {
       this.cardTemplates = [...data];
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
