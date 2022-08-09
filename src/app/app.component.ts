@@ -1,32 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TemplateList } from './models/template-data-modal';
+import { TemplateDataService } from './services/template-data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'mycanva';
-  cardTemplates = [
-    {
-      id: 1,
-      templateUrl: '../assets/temp1.png',
-    },
-    {
-      id: 2,
-      templateUrl: '../assets/temp2.png',
-    },
-    {
-      id: 3,
-      templateUrl: '../assets/temp3.png',
-    },
-    {
-      id: 4,
-      templateUrl: '../assets/temp4.png',
-    },
-    {
-      id: 5,
-      templateUrl: '../assets/temp5.png',
-    }
-  ]
+export class AppComponent implements OnInit {
+  cardTemplates: TemplateList[] = [];
+  constructor(private readonly templateDataService: TemplateDataService) {
+    console.log(this.cardTemplates);
+  }
+  ngOnInit() {
+    this.templateDataService.getTemplates().subscribe(data => {
+      this.cardTemplates = [...data];
+    });
+  }
 }

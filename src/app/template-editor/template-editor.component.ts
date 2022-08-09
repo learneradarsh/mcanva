@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class TemplateEditorComponent implements OnInit {
 
+  @Input() selectedTempate: any;
   templateEditorForm!: FormGroup;
 
   constructor() { }

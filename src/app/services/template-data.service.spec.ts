@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TemplateData.Service.TsService } from './template-data.service.ts.service';
+import { TemplateDataService } from './template-data.service';
 
 describe('TemplateData.Service.TsService', () => {
-  let service: TemplateData.Service.TsService;
+  let service: TemplateDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TemplateData.Service.TsService);
+    service = TestBed.inject(TemplateDataService);
   });
 
   it('should be created', () => {

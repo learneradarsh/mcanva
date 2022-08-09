@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TemplateList } from '../models/template-data-modal';
+import { TemplateDataService } from '../services/template-data.service';
 
 @Component({
   selector: 'app-template-card',
@@ -7,14 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TemplateCardComponent implements OnInit {
 
-  @Input() cardInfo: any;
-  constructor() { }
+  @Input() cardInfo: TemplateList = {} as TemplateList;
+  constructor(private readonly templateDataService: TemplateDataService) { }
 
   ngOnInit(): void {
   }
 
   onTemplateSelect(template: any) {
-    console.log(template);
+    template.isSelected = true;
+    this.templateDataService.setSelectedTemplate(template);
   }
 
 }
