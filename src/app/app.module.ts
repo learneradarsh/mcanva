@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateCardComponent } from './template-card/template-card.component';
 import { PostTimelineComponent } from './post-timeline/post-timeline.component';
+import { TemplateEditorComponent } from './template-editor/template-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateCardComponent,
-    PostTimelineComponent
+    PostTimelineComponent,
+    TemplateEditorComponent
   ],
   imports: [
     BrowserModule,
